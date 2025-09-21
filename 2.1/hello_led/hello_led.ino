@@ -1,14 +1,18 @@
+const int gpioPin = 5;
+const int baudrate = 115200;
+const int interval = 500;   // 500ms
+
 void setup() {
-  pinMode(5, OUTPUT);
-  Serial.begin(115200);
+  pinMode(gpioPin, OUTPUT);
+  Serial.begin(baudrate);
   Serial.println("Ready");
 }
 
 void loop() {
-  digitalWrite(5, HIGH);
+  digitalWrite(gpioPin, HIGH);
   Serial.println("LED ON");
-  delay(1000);
-  digitalWrite(5, LOW);
+  delay(interval);
+  digitalWrite(gpioPin, LOW);
   Serial.println("LED OFF");
-  delay(1000);
+  delay(interval);
 }
