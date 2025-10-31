@@ -1,0 +1,25 @@
+[package]
+name = "led_blink"
+version = "0.1.0"
+authors = ["ESP32 Rust Developer"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+esp-hal = { version = "0.21.1", features = ["esp32"] }
+esp-backtrace = { version = "0.14.1", features = [
+    "esp32",
+    "exception-handler",
+    "panic-handler",
+    "println",
+] }
+esp-println = { version = "0.12.0", features = ["esp32", "log"] }
+log = "0.4.22"
+
+[profile.dev]
+opt-level = "z"
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
